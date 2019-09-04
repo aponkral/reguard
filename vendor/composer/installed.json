@@ -1,0 +1,51 @@
+[
+    {
+        "name": "fire015/flintstone",
+        "version": "v2.2",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fire015/flintstone.git",
+            "reference": "b507136fb5119c5d3be2c7530eb33a91a5bd0aff"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fire015/flintstone/zipball/b507136fb5119c5d3be2c7530eb33a91a5bd0aff",
+            "reference": "b507136fb5119c5d3be2c7530eb33a91a5bd0aff",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^6"
+        },
+        "time": "2019-03-12T12:12:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Flintstone\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jason M",
+                "email": "emailfire@gmail.com"
+            }
+        ],
+        "description": "A key/value database store using flat files for PHP",
+        "homepage": "http://www.xeweb.net/flintstone/",
+        "keywords": [
+            "cache",
+            "database",
+            "files",
+            "flintstone",
+            "memory"
+        ]
+    }
+]
