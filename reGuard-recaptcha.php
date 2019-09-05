@@ -21,10 +21,18 @@ if (!defined("Aponkral_reGuard")) {
 http_response_code(403);
 include_once __DIR__ . "/reGuard-config.php";
 
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen yukarıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the above codes if you do not know what you are doing.
+
 $reGuard['title'] = "reCaptcha by reGuard";
 $reGuard['page_title'] = "reGuard";
 $reGuard['page_description'] = "Sistemimiz, IP adresinizde gelen sıra dışı bir trafik algıladı. Bu sayfa, gelen isteği gönderen kişinin bir robot değil, gerçekten siz olduğunuzu denetlemek içindir.";
 $reGuard['footer_text'] = "reGuard <a href=\"https://aponkral.net/\" style=\"color: #EEEEEE\">Aponkral</a> tarafından ❤️ ile geliştirdi";
+
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen aşağıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the following codes if you do not know what you are doing.
 
 $reGuard['page'] = reGuard_get_template("recaptcha");
 

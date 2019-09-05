@@ -20,10 +20,18 @@ if (!defined("Aponkral_reGuard")) {
 }
 http_response_code(403);
 
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen yukarıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the above codes if you do not know what you are doing.
+
 $reGuard['title'] = "Blocked by reGuard";
 $reGuard['page_title'] = "Blocked by reGuard";
 $reGuard['page_description'] = "Sistemimiz, IP adresinizde gelen sıra dışı bir trafik algıladı. İsteğiniz kabul edilmedi ve engellendi.";
 $reGuard['footer_text'] = "reGuard <a href=\"https://aponkral.net/\" style=\"color: #EEEEEE\">Aponkral</a> tarafından ❤️ ile geliştirdi";
+
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen aşağıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the following codes if you do not know what you are doing.
 
 $reGuard['page'] = reGuard_get_template("blocked");
 

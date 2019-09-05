@@ -13,13 +13,17 @@
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
 
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen aşağıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the following codes if you do not know what you are doing.
+
 define("Aponkral_reGuard", true);
 require_once __DIR__ . '/vendor/google/recaptcha/src/autoload.php';
 require_once __DIR__ . '/vendor/autoload.php';
 use Flintstone\Flintstone;
 use Flintstone\Formatter\JsonFormatter;
 
-$reGuard['client_ip'] = sha1(md5($_SERVER['REMOTE_ADDR']));
+$reGuard['client_ip'] = sha1($_SERVER['REMOTE_ADDR']);
 
 // Load a database
 $reGuard_ips = new Flintstone('ips', ['dir' => __DIR__ . '/database/', 'ext' => '.txt', 'gzip' => false, 'formatter' => new JsonFormatter()]);
@@ -49,8 +53,7 @@ if (!empty($_POST)) {
 			else
 				header("Location: ".$reGuard['site_url']);
 	} else {
-		http_response_code(403);
-		echo "reCaptcha incorrect";
+		header("Location: ".$reGuard['site_url']);
 	}
 }
 ?>

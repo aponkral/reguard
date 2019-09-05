@@ -13,6 +13,10 @@
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
 
+// Türkçe: Ne yaptığınızı bilmiyorsanız lütfen aşağıdaki kodlarda değişiklik yapmayın.
+
+// English: Please do not make changes to the following codes if you do not know what you are doing.
+
 if (!defined("Aponkral_reGuard")) {
 	http_response_code(403);
 	echo "This file cannot be accessed directly. This system was made by APONKRAL.";
@@ -21,7 +25,8 @@ if (!defined("Aponkral_reGuard")) {
 
 // Functions
 function reGuard_get_template($name) {
-	return file_get_contents("templates/reGuard-".$name.".tpl");
+	global $reGuard;
+	return file_get_contents($reGuard['dir'] . "/templates/reGuard-".$name.".tpl");
 }
 
 ?>

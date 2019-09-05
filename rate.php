@@ -1,5 +1,5 @@
 <?php
-include_once "reGuard.php";
+include_once __DIR__ . "/reGuard.php";
 ?>
 <html>
 <head>
@@ -41,7 +41,7 @@ body {
 		<hr style="width: 100%; height: 1px; background-color: #EEEEEE; border-radius: 10px;">
 	</div>
 	<div class="bottom-text">
-		3 saniyede maksimum 1 istek gönderebilirsiniz. Denemek için 3 saniyeden daha kısa sürelerde sayfayı yenileyin.
+		1 saniyede maksimum 5 istek gönderebilirsiniz. Denemek için 0,2 saniyeden daha kısa sürelerde sayfayı yenileyin.
 	</div>
 	
 	<div class="footer-text">

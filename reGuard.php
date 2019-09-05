@@ -13,31 +13,31 @@
 */
 // Her şeyi sana yazdım!.. Her şeye seni yazdım!.. *Mustafa Kemal ATATÜRK
 
-define("Aponkral_reGuard", true);
-include_once __DIR__ . "/reGuard-config.php";
-
 // Türkçe: Ne yaptığınızı bilmiyorsanız lütfen aşağıdaki kodlarda değişiklik yapmayın.
 
 // English: Please do not make changes to the following codes if you do not know what you are doing.
+
+define("Aponkral_reGuard", true);
+include_once __DIR__ . "/reGuard-config.php";
 
 $reGuard['rate']['hour_time'] = 3600;
 $reGuard['rate']['minute_time'] = 60;
 $reGuard['rate']['second_time'] = 1;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once $reGuard['dir'] . '/vendor/autoload.php';
 use Flintstone\Flintstone;
 use Flintstone\Formatter\JsonFormatter;
 
-$reGuard['client_ip'] = sha1(md5($_SERVER['REMOTE_ADDR']));
+$reGuard['client_ip'] = sha1($_SERVER['REMOTE_ADDR']);
 
 // Load a database
-$reGuard_ips = new Flintstone('ips', ['dir' => __DIR__ . '/database/', 'ext' => '.txt', 'gzip' => false, 'formatter' => new JsonFormatter()]);
+$reGuard_ips = new Flintstone('ips', ['dir' => $reGuard['dir'] . '/database/', 'ext' => '.txt', 'gzip' => false, 'formatter' => new JsonFormatter()]);
 
 $reGuard['curr_time'] = round(intval(str_replace('.', '', microtime(true))) / 10);
 
 	if (isset($reGuard_ips->get($reGuard['client_ip'])['blocked']) && isset($reGuard_ips->get($reGuard['client_ip'])['blocking_end'])) {
 	if ($reGuard_ips->get($reGuard['client_ip'])['blocked'] == true && $reGuard_ips->get($reGuard['client_ip'])['blocking_end'] >= $reGuard['curr_time']) {
-		include_once("reGuard-recaptcha.php");
+		include_once $reGuard['dir'] . "/reGuard-recaptcha.php";
 		exit();
 	}
 	}
@@ -51,7 +51,7 @@ $reGuard['curr_time'] = round(intval(str_replace('.', '', microtime(true))) / 10
 		
 		if ($reGuard['sec'] <= $reGuard['rate_per_time']) {
 			$reGuard_ips->set($reGuard['client_ip'], ["last_call" => $reGuard['curr_time'], "blocked" => true, "blocking_end" => ($reGuard['curr_time'] + ($reGuard['block']['time'] * 1000)), "note" => "Blocked by Rate Limit for ".$reGuard['block']['time']." seconds."]);
-			include_once("reGuard-blocked.php");
+			include_once $reGuard['dir'] . "/reGuard-blocked.php";
 			exit();
 		}
 	}
