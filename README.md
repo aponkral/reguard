@@ -1,5 +1,5 @@
-## reGuard
-**Web sitenizi reGuard ile koruyun.**
+# reGuard #
+Web sitenizi reGuard ile koruyun.
 
 reGuard web sitenizi Layer 7 katmanında koruyabilir.
 
@@ -10,7 +10,16 @@ reGuard özellikleri:
 - reCaptcha JavaScript'le veya JavaScript'siz çalışabilir
 
 
-reGuard'ı kullanmak için istediğiniz sayfalarınızın php kodunun en üstüne:
+reGuard'ı kullanmak için reGuard ayarlarındaki
+```
+$reGuard['site_url']
+$reGuard['reGuard_url']
+$reGuard['reCaptcha']['sitekey']
+$reGuard['reCaptcha']['secretkey']
+```
+değerlerini kendinize göre ayarlamalısınız.
+
+reGuard ile korumak istediğiniz sayfalarınızın php kodunun en üstüne:
 ```php
 <?php
 include_once __DIR__ . "/reGuard.php";
